@@ -1,0 +1,19 @@
+{
+  "name": "desi-ng-",
+  "version": "1.0.0",
+  "description": "Service provides online notepad environment for saving notes at times you need it most",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bukomp/desi-ng-.git"
+  },
+  "author": "Edvard Shalaev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bukomp/desi-ng-/issues"
+  },
+  "homepage": "https://github.com/bukomp/desi-ng-#readme"
+}
