@@ -1,0 +1,16 @@
+.favStar {
+  margin: 0 auto 51px 5px;
+}
+
+.newNote {
+  position: fixed;
+  z-index: 999;
+  right: 15%;
+  bottom: 20%;
+}
+
+.container {
+  width: 70%;
+  max-width: 850px;
+  margin: auto;
+}

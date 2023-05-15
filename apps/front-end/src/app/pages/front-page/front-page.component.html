@@ -1,0 +1,62 @@
+<app-progress-bar-module [show]="wait"></app-progress-bar-module>
+<h1 style="margin-top: 0;">{{ 'Desi{ng}' }}</h1>
+<h2></h2>
+<mat-card class="box">
+  <mat-card-header>
+    <mat-card-title>Log in</mat-card-title>
+  </mat-card-header>
+  <app-custom-notification *ngIf="error" [message]="error.message" [type]="error.type"></app-custom-notification>
+
+  <form class="example-form" [formGroup]="form">
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="username" placeholder="Username" />
+        <mat-error *ngIf="form.controls.username?.errors?.minlength">
+          Username must be at least<br /><strong> 4 characters long</strong>
+        </mat-error>
+        <mat-error *ngIf="form.controls.username?.errors?.required"> Username is <strong>required</strong> </mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="registration" class="example-full-width">
+        <input matInput formControlName="email" placeholder="Email" />
+        <mat-error *ngIf="form.controls.email?.errors?.required"> Email is <strong>required</strong> </mat-error>
+        <mat-error *ngIf="form.controls.email?.errors?.email"> Email must be <strong>correct format</strong> </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="password" placeholder="Password" [type]="passwordHide ? 'password' : 'text'" />
+        <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{ passwordHide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <mat-error *ngIf="form.controls.password?.errors?.minlength">
+          Password must be at least<br /><strong> 6 characters long</strong>
+        </mat-error>
+        <mat-error *ngIf="form.controls.password?.errors?.required"> Password is <strong>required</strong> </mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="registration" class="example-full-width">
+        <input matInput formControlName="confirmPassword" placeholder="Password Confirmation" type="password" />
+
+        <mat-error *ngIf="form.controls.confirmPassword?.errors?.required"> Password confirmation is <strong>required</strong> </mat-error>
+
+        <mat-error *ngIf="form.controls.confirmPassword?.errors?.passwordMismatch"> Passwords <strong>do not match</strong> </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+
+    <ng-container [ngSwitch]="registration">
+      <button mat-raised-button color="main" *ngSwitchCase="false" class="btn-block" (click)="onLogin()">
+        Login
+      </button>
+      <button mat-raised-button color="main" *ngSwitchCase="true" class="btn-block" (click)="onRegister()">
+        Register
+      </button>
+    </ng-container>
+
+    <button mat-button color="" class="btn-block" (click)="registerLoginSwitch()">
+      <ng-container *ngIf="!registration">
+        To Registration
+      </ng-container>
+      <ng-container *ngIf="registration">
+        To Login
+      </ng-container>
+    </button>
+  </form>
+</mat-card>

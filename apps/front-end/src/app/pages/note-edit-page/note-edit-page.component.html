@@ -1,0 +1,28 @@
+<app-progress-bar-module [show]="wait"></app-progress-bar-module>
+
+<div class="header">
+  <div>
+    <app-custom-notification *ngIf="error" [message]="error.message" [type]="error.type"></app-custom-notification>
+    <button mat-icon-button (click)="backToUser()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <mat-form-field style="text-align: center; font-size: 24px;" hideRequiredMarker [floatLabel]="'never'" class="example-full-width">
+      <mat-label>HEADER</mat-label>
+      <input matInput required maxlength="15" width="fit-content" [(ngModel)]="note.header" />
+      <mat-error> Header is<strong> required</strong> </mat-error>
+    </mat-form-field>
+    <button mat-icon-button (click)="saveNote()">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-icon-button (click)="removeNote()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <button mat-icon-button class="favButton" (click)="onFav()">
+    <mat-icon>{{ note.favorite ? 'star' : 'star_outline' }}</mat-icon>
+  </button>
+</div>
+
+<div class="content">
+  <textarea matInput style="height: 100%;" [(ngModel)]="note.content"></textarea>
+</div>

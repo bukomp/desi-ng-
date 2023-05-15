@@ -1,0 +1,24 @@
+<div class="header">
+  <div>
+    <button mat-icon-button color="" class="btn-block" (click)="goToSettings()">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <h1>{{ name }}</h1>
+    <button mat-icon-button color="" class="btn-block" (click)="logOut()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</div>
+
+<button mat-fab class="newNote" color="black" (click)="createNewNote()">
+  <mat-icon>edit</mat-icon>
+</button>
+
+<div class="container">
+  <button mat-icon-button class="favStar" (click)="switchFavStatus()">
+    <mat-icon>{{ onlyFavorites ? 'star' : 'star_outline' }}</mat-icon>
+  </button>
+  <mat-placeholder *ngFor="let note of notes">
+    <app-note-preview *ngIf="note.favorite === onlyFavorites || note.favorite" [note]="note"></app-note-preview>
+  </mat-placeholder>
+</div>

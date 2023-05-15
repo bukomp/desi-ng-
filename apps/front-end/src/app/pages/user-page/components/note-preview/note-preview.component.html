@@ -1,0 +1,12 @@
+<div class="noteContainer">
+  <div class="header">
+    <h3>{{ note.header }}</h3>
+    <button mat-icon-button (click)="switchFavStatus()">
+      <mat-icon>{{ note.favorite ? 'star' : 'star_outline' }}</mat-icon>
+    </button>
+    <button mat-icon-button (click)="editNote()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+  <p>{{ note.content }}</p>
+</div>

@@ -1,0 +1,43 @@
+<app-progress-bar-module [show]="wait"></app-progress-bar-module>
+<div class="container">
+  <button mat-icon-button (click)="backToUser()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <app-custom-notification *ngIf="error" [message]="error.message" [type]="error.type"></app-custom-notification>
+
+  <form class="form" [formGroup]="form">
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="username" placeholder="Username" />
+        <mat-error *ngIf="form.controls.username?.errors?.minlength">
+          Username must be at least<br /><strong> 4 characters long</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="email" placeholder="Email" />
+        <mat-error *ngIf="form.controls.email?.errors?.email"> Email must be <strong>correct format</strong> </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="password" placeholder="New Password" [type]="passwordHide ? 'password' : 'text'" />
+        <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{ passwordHide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <mat-error *ngIf="form.controls.password?.errors?.minlength">
+          Password must be at least<br /><strong> 6 characters long</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="form.get('password').value.length > 0" class="example-full-width">
+        <input matInput formControlName="confirmPassword" placeholder="New Password Confirmation" type="password" />
+        <mat-error *ngIf="form.controls.confirmPassword?.errors?.passwordMismatch"> Passwords <strong>do not match</strong> </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+
+    <button mat-raised-button color="" class="btn-block" [disabled]="!formHasNoErrors()" (click)="updateUser()">
+      Save
+    </button>
+    <button mat-button color="" class="btn-block" color="warn" (click)="deleteUser()">
+      Delete
+    </button>
+  </form>
+</div>

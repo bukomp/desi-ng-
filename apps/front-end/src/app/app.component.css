@@ -1,0 +1,19 @@
+/* '../../app.component.css' */
+
+h1 {
+  margin: 0 50px;
+}
+
+.header {
+  border-top: 20px;
+  height: 20vh;
+
+  margin: auto;
+
+  display: flex;
+}
+
+.header div {
+  margin: auto;
+  display: flex;
+}

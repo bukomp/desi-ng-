@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Confirmation</h1>
+<div mat-dialog-content>
+  <p>Please confirm your actions!</p>
+</div>
+<div mat-dialog-actions>
+  <mat-form-field class="example-full-width">
+    <input matInput [formControl]="passwordControl" placeholder="Current Password" />
+    <mat-error *ngIf="passwordControl.hasError('incorrect')"> Password is <strong>incorrect</strong> </mat-error>
+  </mat-form-field>
+  <button mat-raised-button [disabled]="wait" color="primary" (click)="onYes()">Ok</button>
+  <button mat-button (click)="onNo()">No Thanks</button>
+</div>

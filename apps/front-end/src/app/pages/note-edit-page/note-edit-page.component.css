@@ -1,0 +1,39 @@
+.header {
+  height: 16%;
+  text-align: center;
+
+  display: flex;
+}
+
+.header div {
+  margin: auto;
+  padding-left: 40px;
+  height: fit-content;
+}
+
+.header div mat-form-field {
+  margin: 0 20px;
+}
+
+.favButton {
+  position: relative;
+  bottom: -89%;
+  right: 69%;
+}
+
+.content {
+  text-align: center;
+  margin: 40px auto 40px auto;
+  height: calc(84% - 80px);
+  width: 60%;
+  max-width: 1000px;
+}
+
+.content textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  text-align: left;
+  border-radius: 5px;
+  background-color: #e8e8e8;
+}

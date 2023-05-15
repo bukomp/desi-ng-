@@ -1,0 +1,18 @@
+.noteContainer {
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.header {
+  margin-top: 20px;
+  margin: auto;
+  display: flex;
+}
+
+.header h3 {
+  margin: 0;
+  line-height: 40px;
+  width: calc(100% - 80px);
+}

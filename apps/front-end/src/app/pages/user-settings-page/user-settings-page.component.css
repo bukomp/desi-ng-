@@ -1,0 +1,10 @@
+.container {
+  padding: calc(50vh - 195px) 0 0 0;
+  margin: auto;
+
+  width: fit-content;
+}
+
+.form {
+  display: table-caption;
+}
